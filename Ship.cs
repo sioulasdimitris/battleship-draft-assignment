@@ -21,46 +21,6 @@ namespace BattleShip
             this.id = id;
             this.name = name;
             this.length = length;
-            squares = new int[length];
-            dummyMethod(id, squares);
-        }
-
-        private void dummyMethod(String id, int[] squares)
-        {
-            //ship 1
-            if(String.Equals(id, "aircraftCarrier"))
-            {
-                squares[0] = 1;
-                squares[1] = 2;
-                squares[2] = 3;
-                squares[3] = 4;
-                squares[4] = 5;
-
-            }
-            //ship 2
-            if (String.Equals(id, "destroyer"))
-            {
-                squares[0] = 10;
-                squares[1] = 20;
-                squares[2] = 30;
-                squares[3] = 40;
-
-            }
-            //ship 3
-            if (String.Equals(id, "warShip"))
-            {
-                squares[0] = 54;
-                squares[1] = 55;
-                squares[2] = 56;
-
-            }
-            //ship 4
-            if (String.Equals(id, "submarine"))
-            {
-                squares[0] = 29;
-                squares[1] = 39;
-
-            }
         }
 
         public Boolean getSinked()
@@ -73,20 +33,25 @@ namespace BattleShip
             return name;
         }
 
-        public int[] getSquares()
+        public int[] getSquares()//get the squares that the ship is going to be placed
         {
             return squares;
         }
 
-        public int getLength()
+        public void setSquares(int[] squares)//set the squares the ship is going to be placed
+        {
+            this.squares = squares;
+        }
+
+        public int getLength()//get the length of the ship (how many squares)
         {
             return length;
         }
 
-        public void increaseSuccesfulHits()
+        public void increaseSuccesfulHits()//if some square of the ship is hit increase succesfulHits variable
         {
             succesfulHits++;
-            if (succesfulHits == length)
+            if (succesfulHits == length)//if the sucessful hits are equal to the ship's length, the ship has been sinked
                 sinked = true;
         }
 

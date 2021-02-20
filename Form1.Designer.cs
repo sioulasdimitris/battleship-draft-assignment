@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.startNewGameButton = new System.Windows.Forms.Button();
             this.timePromptTextLabel = new System.Windows.Forms.Label();
             this.timeTextLabel = new System.Windows.Forms.Label();
             this.playerBoard = new System.Windows.Forms.Panel();
@@ -46,6 +45,16 @@
             this.labelRowF1 = new System.Windows.Forms.Label();
             this.panelRows1 = new System.Windows.Forms.Panel();
             this.panelColumns1 = new System.Windows.Forms.Panel();
+            this.labelColumnJ1 = new System.Windows.Forms.Label();
+            this.labelColumnI1 = new System.Windows.Forms.Label();
+            this.labelColumnH1 = new System.Windows.Forms.Label();
+            this.labelColumnG1 = new System.Windows.Forms.Label();
+            this.labelColumnF1 = new System.Windows.Forms.Label();
+            this.labelColumnE1 = new System.Windows.Forms.Label();
+            this.labelColumnD1 = new System.Windows.Forms.Label();
+            this.labelColumnC1 = new System.Windows.Forms.Label();
+            this.labelColumnB1 = new System.Windows.Forms.Label();
+            this.labelColumnA1 = new System.Windows.Forms.Label();
             this.panelRows2 = new System.Windows.Forms.Panel();
             this.labelRowA2 = new System.Windows.Forms.Label();
             this.labelRowI2 = new System.Windows.Forms.Label();
@@ -57,16 +66,6 @@
             this.labelRowC2 = new System.Windows.Forms.Label();
             this.labelRowD2 = new System.Windows.Forms.Label();
             this.labelRowH2 = new System.Windows.Forms.Label();
-            this.labelColumnA1 = new System.Windows.Forms.Label();
-            this.labelColumnB1 = new System.Windows.Forms.Label();
-            this.labelColumnC1 = new System.Windows.Forms.Label();
-            this.labelColumnD1 = new System.Windows.Forms.Label();
-            this.labelColumnE1 = new System.Windows.Forms.Label();
-            this.labelColumnF1 = new System.Windows.Forms.Label();
-            this.labelColumnG1 = new System.Windows.Forms.Label();
-            this.labelColumnH1 = new System.Windows.Forms.Label();
-            this.labelColumnI1 = new System.Windows.Forms.Label();
-            this.labelColumnJ1 = new System.Windows.Forms.Label();
             this.computerBoard = new System.Windows.Forms.Panel();
             this.panelColumns2 = new System.Windows.Forms.Panel();
             this.labelColumnJ2 = new System.Windows.Forms.Label();
@@ -79,6 +78,9 @@
             this.labelColumnC2 = new System.Windows.Forms.Label();
             this.labelColumnB2 = new System.Windows.Forms.Label();
             this.labelColumnA2 = new System.Windows.Forms.Label();
+            this.userLabel = new System.Windows.Forms.Label();
+            this.computerLabel = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelRows1.SuspendLayout();
             this.panelColumns1.SuspendLayout();
             this.panelRows2.SuspendLayout();
@@ -89,16 +91,6 @@
             // 
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // startNewGameButton
-            // 
-            this.startNewGameButton.Location = new System.Drawing.Point(12, 12);
-            this.startNewGameButton.Name = "startNewGameButton";
-            this.startNewGameButton.Size = new System.Drawing.Size(155, 30);
-            this.startNewGameButton.TabIndex = 0;
-            this.startNewGameButton.Text = "Start New Game";
-            this.startNewGameButton.UseVisualStyleBackColor = true;
-            this.startNewGameButton.Click += new System.EventHandler(this.startNewGame_Click);
             // 
             // timePromptTextLabel
             // 
@@ -251,6 +243,96 @@
             this.panelColumns1.TabIndex = 258;
             this.panelColumns1.Visible = false;
             // 
+            // labelColumnJ1
+            // 
+            this.labelColumnJ1.AutoSize = true;
+            this.labelColumnJ1.Location = new System.Drawing.Point(495, 10);
+            this.labelColumnJ1.Name = "labelColumnJ1";
+            this.labelColumnJ1.Size = new System.Drawing.Size(24, 17);
+            this.labelColumnJ1.TabIndex = 268;
+            this.labelColumnJ1.Text = "10";
+            // 
+            // labelColumnI1
+            // 
+            this.labelColumnI1.AutoSize = true;
+            this.labelColumnI1.Location = new System.Drawing.Point(445, 10);
+            this.labelColumnI1.Name = "labelColumnI1";
+            this.labelColumnI1.Size = new System.Drawing.Size(16, 17);
+            this.labelColumnI1.TabIndex = 267;
+            this.labelColumnI1.Text = "9";
+            // 
+            // labelColumnH1
+            // 
+            this.labelColumnH1.AutoSize = true;
+            this.labelColumnH1.Location = new System.Drawing.Point(390, 10);
+            this.labelColumnH1.Name = "labelColumnH1";
+            this.labelColumnH1.Size = new System.Drawing.Size(16, 17);
+            this.labelColumnH1.TabIndex = 266;
+            this.labelColumnH1.Text = "8";
+            // 
+            // labelColumnG1
+            // 
+            this.labelColumnG1.AutoSize = true;
+            this.labelColumnG1.Location = new System.Drawing.Point(340, 10);
+            this.labelColumnG1.Name = "labelColumnG1";
+            this.labelColumnG1.Size = new System.Drawing.Size(16, 17);
+            this.labelColumnG1.TabIndex = 265;
+            this.labelColumnG1.Text = "7";
+            // 
+            // labelColumnF1
+            // 
+            this.labelColumnF1.AutoSize = true;
+            this.labelColumnF1.Location = new System.Drawing.Point(285, 10);
+            this.labelColumnF1.Name = "labelColumnF1";
+            this.labelColumnF1.Size = new System.Drawing.Size(16, 17);
+            this.labelColumnF1.TabIndex = 264;
+            this.labelColumnF1.Text = "6";
+            // 
+            // labelColumnE1
+            // 
+            this.labelColumnE1.AutoSize = true;
+            this.labelColumnE1.Location = new System.Drawing.Point(235, 10);
+            this.labelColumnE1.Name = "labelColumnE1";
+            this.labelColumnE1.Size = new System.Drawing.Size(16, 17);
+            this.labelColumnE1.TabIndex = 263;
+            this.labelColumnE1.Text = "5";
+            // 
+            // labelColumnD1
+            // 
+            this.labelColumnD1.AutoSize = true;
+            this.labelColumnD1.Location = new System.Drawing.Point(180, 10);
+            this.labelColumnD1.Name = "labelColumnD1";
+            this.labelColumnD1.Size = new System.Drawing.Size(16, 17);
+            this.labelColumnD1.TabIndex = 262;
+            this.labelColumnD1.Text = "4";
+            // 
+            // labelColumnC1
+            // 
+            this.labelColumnC1.AutoSize = true;
+            this.labelColumnC1.Location = new System.Drawing.Point(125, 10);
+            this.labelColumnC1.Name = "labelColumnC1";
+            this.labelColumnC1.Size = new System.Drawing.Size(16, 17);
+            this.labelColumnC1.TabIndex = 261;
+            this.labelColumnC1.Text = "3";
+            // 
+            // labelColumnB1
+            // 
+            this.labelColumnB1.AutoSize = true;
+            this.labelColumnB1.Location = new System.Drawing.Point(70, 10);
+            this.labelColumnB1.Name = "labelColumnB1";
+            this.labelColumnB1.Size = new System.Drawing.Size(16, 17);
+            this.labelColumnB1.TabIndex = 260;
+            this.labelColumnB1.Text = "2";
+            // 
+            // labelColumnA1
+            // 
+            this.labelColumnA1.AutoSize = true;
+            this.labelColumnA1.Location = new System.Drawing.Point(20, 10);
+            this.labelColumnA1.Name = "labelColumnA1";
+            this.labelColumnA1.Size = new System.Drawing.Size(16, 17);
+            this.labelColumnA1.TabIndex = 0;
+            this.labelColumnA1.Text = "1";
+            // 
             // panelRows2
             // 
             this.panelRows2.Controls.Add(this.labelRowA2);
@@ -358,96 +440,6 @@
             this.labelRowH2.Size = new System.Drawing.Size(18, 17);
             this.labelRowH2.TabIndex = 253;
             this.labelRowH2.Text = "H";
-            // 
-            // labelColumnA1
-            // 
-            this.labelColumnA1.AutoSize = true;
-            this.labelColumnA1.Location = new System.Drawing.Point(20, 10);
-            this.labelColumnA1.Name = "labelColumnA1";
-            this.labelColumnA1.Size = new System.Drawing.Size(16, 17);
-            this.labelColumnA1.TabIndex = 0;
-            this.labelColumnA1.Text = "1";
-            // 
-            // labelColumnB1
-            // 
-            this.labelColumnB1.AutoSize = true;
-            this.labelColumnB1.Location = new System.Drawing.Point(70, 10);
-            this.labelColumnB1.Name = "labelColumnB1";
-            this.labelColumnB1.Size = new System.Drawing.Size(16, 17);
-            this.labelColumnB1.TabIndex = 260;
-            this.labelColumnB1.Text = "2";
-            // 
-            // labelColumnC1
-            // 
-            this.labelColumnC1.AutoSize = true;
-            this.labelColumnC1.Location = new System.Drawing.Point(125, 10);
-            this.labelColumnC1.Name = "labelColumnC1";
-            this.labelColumnC1.Size = new System.Drawing.Size(16, 17);
-            this.labelColumnC1.TabIndex = 261;
-            this.labelColumnC1.Text = "3";
-            // 
-            // labelColumnD1
-            // 
-            this.labelColumnD1.AutoSize = true;
-            this.labelColumnD1.Location = new System.Drawing.Point(180, 10);
-            this.labelColumnD1.Name = "labelColumnD1";
-            this.labelColumnD1.Size = new System.Drawing.Size(16, 17);
-            this.labelColumnD1.TabIndex = 262;
-            this.labelColumnD1.Text = "4";
-            // 
-            // labelColumnE1
-            // 
-            this.labelColumnE1.AutoSize = true;
-            this.labelColumnE1.Location = new System.Drawing.Point(235, 10);
-            this.labelColumnE1.Name = "labelColumnE1";
-            this.labelColumnE1.Size = new System.Drawing.Size(16, 17);
-            this.labelColumnE1.TabIndex = 263;
-            this.labelColumnE1.Text = "5";
-            // 
-            // labelColumnF1
-            // 
-            this.labelColumnF1.AutoSize = true;
-            this.labelColumnF1.Location = new System.Drawing.Point(285, 10);
-            this.labelColumnF1.Name = "labelColumnF1";
-            this.labelColumnF1.Size = new System.Drawing.Size(16, 17);
-            this.labelColumnF1.TabIndex = 264;
-            this.labelColumnF1.Text = "6";
-            // 
-            // labelColumnG1
-            // 
-            this.labelColumnG1.AutoSize = true;
-            this.labelColumnG1.Location = new System.Drawing.Point(340, 10);
-            this.labelColumnG1.Name = "labelColumnG1";
-            this.labelColumnG1.Size = new System.Drawing.Size(16, 17);
-            this.labelColumnG1.TabIndex = 265;
-            this.labelColumnG1.Text = "7";
-            // 
-            // labelColumnH1
-            // 
-            this.labelColumnH1.AutoSize = true;
-            this.labelColumnH1.Location = new System.Drawing.Point(390, 10);
-            this.labelColumnH1.Name = "labelColumnH1";
-            this.labelColumnH1.Size = new System.Drawing.Size(16, 17);
-            this.labelColumnH1.TabIndex = 266;
-            this.labelColumnH1.Text = "8";
-            // 
-            // labelColumnI1
-            // 
-            this.labelColumnI1.AutoSize = true;
-            this.labelColumnI1.Location = new System.Drawing.Point(445, 10);
-            this.labelColumnI1.Name = "labelColumnI1";
-            this.labelColumnI1.Size = new System.Drawing.Size(16, 17);
-            this.labelColumnI1.TabIndex = 267;
-            this.labelColumnI1.Text = "9";
-            // 
-            // labelColumnJ1
-            // 
-            this.labelColumnJ1.AutoSize = true;
-            this.labelColumnJ1.Location = new System.Drawing.Point(495, 10);
-            this.labelColumnJ1.Name = "labelColumnJ1";
-            this.labelColumnJ1.Size = new System.Drawing.Size(24, 17);
-            this.labelColumnJ1.TabIndex = 268;
-            this.labelColumnJ1.Text = "10";
             // 
             // computerBoard
             // 
@@ -564,11 +556,37 @@
             this.labelColumnA2.TabIndex = 0;
             this.labelColumnA2.Text = "1";
             // 
+            // userLabel
+            // 
+            this.userLabel.AutoSize = true;
+            this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.userLabel.Location = new System.Drawing.Point(327, 35);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(111, 29);
+            this.userLabel.TabIndex = 262;
+            this.userLabel.Text = "My Ships";
+            this.userLabel.Visible = false;
+            // 
+            // computerLabel
+            // 
+            this.computerLabel.AutoSize = true;
+            this.computerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.computerLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.computerLabel.Location = new System.Drawing.Point(1116, 35);
+            this.computerLabel.Name = "computerLabel";
+            this.computerLabel.Size = new System.Drawing.Size(202, 29);
+            this.computerLabel.TabIndex = 263;
+            this.computerLabel.Text = "Computer\'s Ships";
+            this.computerLabel.Visible = false;
+            // 
             // labelColumn8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 753);
+            this.ClientSize = new System.Drawing.Size(1924, 755);
+            this.Controls.Add(this.computerLabel);
+            this.Controls.Add(this.userLabel);
             this.Controls.Add(this.panelColumns2);
             this.Controls.Add(this.computerBoard);
             this.Controls.Add(this.panelRows2);
@@ -577,7 +595,6 @@
             this.Controls.Add(this.playerBoard);
             this.Controls.Add(this.timeTextLabel);
             this.Controls.Add(this.timePromptTextLabel);
-            this.Controls.Add(this.startNewGameButton);
             this.Name = "labelColumn8";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -597,7 +614,6 @@
         #endregion
 
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Button startNewGameButton;
         private System.Windows.Forms.Label timePromptTextLabel;
         private System.Windows.Forms.Label timeTextLabel;
         private System.Windows.Forms.Panel playerBoard;
@@ -646,6 +662,9 @@
         private System.Windows.Forms.Label labelColumnC2;
         private System.Windows.Forms.Label labelColumnB2;
         private System.Windows.Forms.Label labelColumnA2;
+        private System.Windows.Forms.Label userLabel;
+        private System.Windows.Forms.Label computerLabel;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
